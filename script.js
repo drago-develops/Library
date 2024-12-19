@@ -23,9 +23,16 @@ console.log(myLibrary[0]);
 console.log(myLibrary[1]);
 
 //loop function that displays book details on the website
-let list = document.getElementById("books");
+let paraBooks = document.getElementById("books");
 myLibrary.forEach((item) => {
-    let li = document.createElement("li");
-    li.innerText = `Title: ${item.title}, Author: ${item.author}, Pages: ${item.pages}`;
-    list.appendChild(li);
+    let para = document.createElement("p");
+    para.classList.add("bookCard");
+    let paraTitle = document.createElement("p")
+    paraTitle.innerText = `Title: ${item.title}`;
+    let paraAuthor = document.createElement("p");
+    paraAuthor.innerText = `Author: ${item.author}`;
+    let paraPages = document.createElement("p");
+    paraPages.innerText = `Pages: ${item.pages}`;
+    para.append(paraTitle, paraAuthor,paraPages);
+    paraBooks.appendChild(para);
 })
