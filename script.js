@@ -36,3 +36,8 @@ myLibrary.forEach((item) => {
     para.append(paraTitle, paraAuthor,paraPages);
     paraBooks.appendChild(para);
 })
+
+//code to prevent submit button from sending data to (non-existant) server
+document.getElementById("addBook").addEventListener('click', function(event){
+    event.preventDefault()
+});
