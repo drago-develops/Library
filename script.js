@@ -28,7 +28,7 @@ myLibrary.forEach((item) => {
     let para = document.createElement("p");
     para.classList.add("bookCard");
     let paraTitle = document.createElement("p")
-    paraTitle.innerText = `Title: ${item.title}`;
+    paraTitle.innerText = `Title: "${item.title}"`;
     let paraAuthor = document.createElement("p");
     paraAuthor.innerText = `Author: ${item.author}`;
     let paraPages = document.createElement("p");
