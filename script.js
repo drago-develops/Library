@@ -24,7 +24,8 @@ console.log(myLibrary[1]);
 
 //loop function that displays book details on the website
 let paraBooks = document.getElementById("books");
-myLibrary.forEach((item) => {
+function displayBooks(){ 
+    myLibrary.forEach((item) => {
     let para = document.createElement("p");
     para.classList.add("bookCard");
     let paraTitle = document.createElement("p")
@@ -35,7 +36,8 @@ myLibrary.forEach((item) => {
     paraPages.innerText = `Pages: ${item.pages}`;
     para.append(paraTitle, paraAuthor,paraPages);
     paraBooks.appendChild(para);
-})
+    })
+}
 
 //code to prevent submit button from sending data to (non-existant) server
 document.getElementById("addBook").addEventListener('click', function(event){
@@ -51,4 +53,5 @@ function submitBook(){
     let bookPages = document.getElementById("pages").value;
     let newBook = new bookDetails(bookTitle, bookAuthor, bookPages);
     addBookToLibrary(newBook);
+    displayBooks();
 }
