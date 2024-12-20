@@ -1,9 +1,9 @@
 const myLibrary = [];
 
 //construtor function of and object book
-function Book(title, author, pages){
+function bookDetails(title, author, pages){
     this.title = title
-    this. author = author
+    this.author = author
     this.pages = pages
 }
 
@@ -12,9 +12,9 @@ function addBookToLibrary(book){
     return myLibrary.push(book)    
 }
 
-let book1 = new Book("abc", "AnAuthor", "101");
+let book1 = new bookDetails("abc", "AnAuthor", "101");
 console.log(book1)
-let book2 = new Book("xyz", "AnAuthor2", "100");
+let book2 = new bookDetails("xyz", "AnAuthor2", "100");
 console.log(book1)
 addBookToLibrary(book1);
 addBookToLibrary(book2)
@@ -41,3 +41,14 @@ myLibrary.forEach((item) => {
 document.getElementById("addBook").addEventListener('click', function(event){
     event.preventDefault()
 });
+
+
+//function to fetch book details data from form into myLibrary array
+document.getElementById("addBook").addEventListener("click", submitBook);
+function submitBook(){
+    let bookTitle = document.getElementById("title").value;
+    let bookAuthor = document.getElementById("author").value;
+    let bookPages = document.getElementById("pages").value;
+    let newBook = new bookDetails(bookTitle, bookAuthor, bookPages);
+    addBookToLibrary(newBook);
+}
