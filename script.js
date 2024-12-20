@@ -12,16 +12,6 @@ function addBookToLibrary(book){
     return myLibrary.push(book)    
 }
 
-let book1 = new bookDetails("abc", "AnAuthor", "101");
-console.log(book1)
-let book2 = new bookDetails("xyz", "AnAuthor2", "100");
-console.log(book1)
-addBookToLibrary(book1);
-addBookToLibrary(book2)
-console.log(myLibrary)
-console.log(myLibrary[0]);
-console.log(myLibrary[1]);
-
 //loop function that displays book details on the website
 let paraBooks = document.getElementById("books");
 function displayBooks(){ 
