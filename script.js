@@ -14,19 +14,19 @@ function addBookToLibrary(book){
 
 //loop function that displays book details on the website
 let paraBooks = document.getElementById("books");
-function displayBooks(){ 
-    myLibrary.forEach((item) => {
+function displayBooks(){
+    let lastBook = myLibrary[myLibrary.length-1]
+    console.log(lastBook)
     let para = document.createElement("p");
     para.classList.add("bookCard");
     let paraTitle = document.createElement("p")
-    paraTitle.innerText = `Title: "${item.title}"`;
+    paraTitle.innerText = `Title: "${lastBook.title}"`;
     let paraAuthor = document.createElement("p");
-    paraAuthor.innerText = `Author: ${item.author}`;
+    paraAuthor.innerText = `Author: ${lastBook.author}`;
     let paraPages = document.createElement("p");
-    paraPages.innerText = `Pages: ${item.pages}`;
+    paraPages.innerText = `Pages: ${lastBook.pages}`;
     para.append(paraTitle, paraAuthor,paraPages);
     paraBooks.appendChild(para);
-    })
 }
 
 //code to prevent submit button from sending data to (non-existant) server
