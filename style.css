@@ -20,7 +20,17 @@
     grid-area: sidebar;
     background-color: #86efac;
 }
+form{
+    display: flex;
+    flex-direction: column;
 
+}
+input{
+    border-radius: 5px;
+    border: none;
+    margin: 5px;
+    padding: 3px;
+}
 main{
     grid-area: main;
     background-color: #f5f5f4;
