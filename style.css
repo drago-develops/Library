@@ -34,4 +34,17 @@ input{
 main{
     grid-area: main;
     background-color: #f5f5f4;
+    overflow: auto;
+}
+#books{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.bookCard{
+    border: solid 2px #10b981;
+    border-radius: 5px;
+    background-color: #a7f3d0;
+    max-width: 400px;
+    margin: 3px;
 }
