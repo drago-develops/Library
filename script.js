@@ -9,7 +9,7 @@ function bookDetails(title, author, pages){
 
 //function to add a book to myLibrary array
 function addBookToLibrary(book){
-    return myLibrary.push(book)    
+    return myLibrary.push(book)
 }
 
 //loop function that displays book details on the website
@@ -41,7 +41,19 @@ function submitBook(){
     let bookTitle = document.getElementById("title").value;
     let bookAuthor = document.getElementById("author").value;
     let bookPages = document.getElementById("pages").value;
+    if(bookTitle === "" || bookAuthor === "" || bookPages === ""){
+        console.log("Please input valid details of a book." )
+        let space = document.getElementById("warning");
+        let warning = document.createElement("h3");
+        warning.setAttribute("id", "warningMessage")
+        warning.innerText = "Please input valid details of a book."
+        space.appendChild(warning);
+        setTimeout(() => {
+             document.getElementById("warningMessage").remove();
+         }, 3000);
+    }else{
     let newBook = new bookDetails(bookTitle, bookAuthor, bookPages);
     addBookToLibrary(newBook);
     displayBooks();
+    };
 }
