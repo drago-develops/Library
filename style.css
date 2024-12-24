@@ -48,3 +48,13 @@ main{
     max-width: 400px;
     margin: 3px;
 }
+
+h3#warningMessage{
+    color: #ef4444;
+    background-color: #fca5a5;
+    border: solid 1px #dc2626;
+    text-align: center;
+    border-radius: 15px;
+    margin: 5px;
+    box-shadow: 5px 10px 18px red;
+}

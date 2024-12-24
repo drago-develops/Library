@@ -41,6 +41,9 @@ function submitBook(){
     let bookTitle = document.getElementById("title").value;
     let bookAuthor = document.getElementById("author").value;
     let bookPages = document.getElementById("pages").value;
+    
+    //function to check if all details of a book been provided with a warming message
+    //displayed (set Timer for message to be removed.) before adding book to myLibrary.
     if(bookTitle === "" || bookAuthor === "" || bookPages === ""){
         console.log("Please input valid details of a book." )
         let space = document.getElementById("warning");
