@@ -45,15 +45,19 @@ function submitBook(){
     //function to check if all details of a book been provided with a warming message
     //displayed (set Timer for message to be removed.) before adding book to myLibrary.
     if(bookTitle === "" || bookAuthor === "" || bookPages === ""){
-        console.log("Please input valid details of a book." )
-        let space = document.getElementById("warning");
-        let warning = document.createElement("h3");
-        warning.setAttribute("id", "warningMessage")
-        warning.innerText = "Please input valid details of a book."
-        space.appendChild(warning);
-        setTimeout(() => {
-             document.getElementById("warningMessage").remove();
-         }, 3000);
+        //if statement in place to check if one waring message is present.
+        if (document.getElementById("warningMessage") === null){
+            console.log("Please input valid details of a book." )
+            let space = document.getElementById("warning");
+            let warning = document.createElement("h3");
+            warning.setAttribute("id", "warningMessage")
+            warning.innerText = "Please input valid details of a book."
+            space.appendChild(warning);
+            setTimeout(() => {
+                document.getElementById("warningMessage").remove();
+            }, 3000);
+        }else{console.log("warning Message already present.")}
+        
     }else{
     let newBook = new bookDetails(bookTitle, bookAuthor, bookPages);
     addBookToLibrary(newBook);
