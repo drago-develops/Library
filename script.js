@@ -19,20 +19,31 @@ let paraBooks = document.getElementById("books");
 function displayBooks(){
     let lastBook = myLibrary[myLibrary.length-1]
     console.log(lastBook)
+    //creating bookCard on which book details will be displayed with delete button and read toggle
     let para = document.createElement("p");
     para.classList.add("bookCard");
     para.setAttribute("id", `uniqueNo${count}`)
+    //displaying book details
     let paraTitle = document.createElement("p")
     paraTitle.innerText = `Title: "${lastBook.title}"`;
     let paraAuthor = document.createElement("p");
     paraAuthor.innerText = `Author: ${lastBook.author}`;
     let paraPages = document.createElement("p");
     paraPages.innerText = `Pages: ${lastBook.pages}`;
+    //delete button 
     let deleteButton = document.createElement("button")
     deleteButton.innerText = "Delete";
     deleteButton.classList.add("bookDelete");
     deleteButton.setAttribute('id', `removeUniqueNo${count}`)
-    para.append(paraTitle, paraAuthor,paraPages,deleteButton);
+    //read toggle
+    let readStatus = document.createElement("input")
+    readStatus.setAttribute("type", "checkbox")
+    readStatus.setAttribute("id", "readStatus")
+    let readStatusLabel = document.createElement("label")
+    readStatusLabel.setAttribute("for", "readStatus")
+    readStatusLabel.innerHTML = "Read status"
+    //adding all above details and features to bookCard
+    para.append(paraTitle, paraAuthor,paraPages,deleteButton, readStatus, readStatusLabel);
     paraBooks.appendChild(para);
 }
 
