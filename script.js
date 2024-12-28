@@ -1,5 +1,7 @@
 const myLibrary = [];
 
+var count = 0
+
 //construtor function of and object book
 function bookDetails(title, author, pages){
     this.title = title
@@ -19,13 +21,18 @@ function displayBooks(){
     console.log(lastBook)
     let para = document.createElement("p");
     para.classList.add("bookCard");
+    para.setAttribute("id", `uniqueNo${count}`)
     let paraTitle = document.createElement("p")
     paraTitle.innerText = `Title: "${lastBook.title}"`;
     let paraAuthor = document.createElement("p");
     paraAuthor.innerText = `Author: ${lastBook.author}`;
     let paraPages = document.createElement("p");
     paraPages.innerText = `Pages: ${lastBook.pages}`;
-    para.append(paraTitle, paraAuthor,paraPages);
+    let deleteButton = document.createElement("button")
+    deleteButton.innerText = "Delete";
+    deleteButton.classList.add("bookDelete");
+    deleteButton.setAttribute('id', `removeUniqueNo${count}`)
+    para.append(paraTitle, paraAuthor,paraPages,deleteButton);
     paraBooks.appendChild(para);
 }
 
@@ -60,7 +67,32 @@ function submitBook(){
         
     }else{
     let newBook = new bookDetails(bookTitle, bookAuthor, bookPages);
+    newBook.uniqueNo = count;
+    count++;
     addBookToLibrary(newBook);
     displayBooks();
     };
 }
+
+//function for delete button. It will remove unwanted bookCard from display
+// and entry from myLibrary.
+let deleteButtons = document.querySelector("#books")
+deleteButtons.addEventListener("click", event => {
+    //using event delegation since delete button is dinamically added
+    if(event.target.matches(".bookDelete")){
+        //deleting specific bookCard from display
+        console.log(event.srcElement.id);
+        let uniqNo = (event.srcElement.id).split("removeUniqueNo").pop();;
+        console.log(uniqNo)
+        document.getElementById(`uniqueNo${uniqNo}`).remove();
+        //removing bookDetails from myLibrary
+        let index = myLibrary.findIndex(book => book.uniqueNo === (uniqNo - 1));
+        myLibrary.splice(index, 1);
+        console.log(myLibrary)
+    }
+})
+
+
+
+
+
