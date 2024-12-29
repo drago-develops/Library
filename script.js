@@ -38,7 +38,8 @@ function displayBooks(){
     //read toggle
     let readStatus = document.createElement("input")
     readStatus.setAttribute("type", "checkbox")
-    readStatus.setAttribute("id", "readStatus")
+    readStatus.setAttribute("id", `readStatus${count}`)
+    readStatus.setAttribute('class', 'readStatus')
     let readStatusLabel = document.createElement("label")
     readStatusLabel.setAttribute("for", "readStatus")
     readStatusLabel.innerHTML = "Read status"
@@ -80,6 +81,7 @@ function submitBook(){
     let newBook = new bookDetails(bookTitle, bookAuthor, bookPages);
     newBook.uniqueNo = count;
     count++;
+    newBook.readBookStatus = false;
     addBookToLibrary(newBook);
     displayBooks();
     };
@@ -93,7 +95,7 @@ deleteButtons.addEventListener("click", event => {
     if(event.target.matches(".bookDelete")){
         //deleting specific bookCard from display
         console.log(event.srcElement.id);
-        let uniqNo = (event.srcElement.id).split("removeUniqueNo").pop();;
+        let uniqNo = (event.srcElement.id).split("removeUniqueNo").pop();
         console.log(uniqNo)
         document.getElementById(`uniqueNo${uniqNo}`).remove();
         //removing bookDetails from myLibrary
@@ -103,7 +105,23 @@ deleteButtons.addEventListener("click", event => {
     }
 })
 
-
+//function to change read status in bookDetails in myLibrary based on user input(type=checkbox)
+let bookStatus = document.querySelector('#books');
+bookStatus.addEventListener('click', event => {
+    //using event delegation since input is dinamically added
+    if (event.target.matches('.readStatus')){
+        //getting index of a book in myLibrary from bookCard that has been clicked on
+        let uniqNo = (event.srcElement.id).split("readStatus").pop();
+        let index = myLibrary.findIndex(book => book.uniqueNo === (uniqNo - 1));
+        //if statement that changes value of read status. 
+        if (myLibrary[index].readBookStatus === false){
+            myLibrary[index].readBookStatus = true;
+        }else if (myLibrary[index].readBookStatus === true){
+            myLibrary[index].readBookStatus = false;
+        }
+    }
+    console.log(myLibrary)
+})
 
 
 
