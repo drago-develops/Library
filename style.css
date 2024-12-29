@@ -58,3 +58,14 @@ h3#warningMessage{
     margin: 5px;
     box-shadow: 5px 10px 18px red;
 }
+
+dialog{
+    position: relative;
+    top: 30vh;
+    left: 30vw;
+    height: max(250px, 30vh);
+    width: max(250px, 30vw);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #86efac;
+}

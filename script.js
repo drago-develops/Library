@@ -85,6 +85,8 @@ function submitBook(){
     addBookToLibrary(newBook);
     displayBooks();
     };
+    //book form dialog closes after bookDetails submitted.
+    dialog.close();
 }
 
 //function for delete button. It will remove unwanted bookCard from display
@@ -122,6 +124,17 @@ bookStatus.addEventListener('click', event => {
     }
     console.log(myLibrary)
 })
+
+//function to opperate dialog to submit book form > bookDetails.
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector("dialog + button");
+
+// "Add book" button opens the dialog modally
+showButton.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+  
 
 
 
