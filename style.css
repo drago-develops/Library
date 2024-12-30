@@ -18,12 +18,12 @@
 h1{
     font-size: x-large;
     font-weight: bolder;
-    font-size: 80px;
+    font-size: max(40px , 4vw);
 }
 h2{
     font-size: x-large;
     font-weight: bolder;
-    font-size: 40px; 
+    font-size: max(30px , 3vw); 
 }
 .gridContainer{
     display: grid;
